@@ -1,8 +1,8 @@
 function Navbar() {
   return (
-    <div>
-      
-    </div>
+    <nav className=" navbar bg-body-tertiary">
+      zug
+    </nav>
   )
 }
 
