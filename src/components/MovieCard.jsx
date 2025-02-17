@@ -1,3 +1,5 @@
+import { FaTrashCan } from "react-icons/fa6"
+
 function MovieCard() {
   return (
     <div className="col-6 m-5">
@@ -6,6 +8,9 @@ function MovieCard() {
             <h3 className="card-title m-0">
                 Card
             </h3>
+            <div className="text-danger">
+              <FaTrashCan/>
+            </div>
         </div>
       </div>
     </div>
