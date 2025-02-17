@@ -4,7 +4,7 @@ function MovieCard() {
   return (
     <div className="col-6 m-5">
       <div className="card bg-bone-white text-dark">
-        <div className="card-body">
+        <div className="card-body d-flex justify-content-between">
             <h3 className="card-title m-0">
                 Card
             </h3>
