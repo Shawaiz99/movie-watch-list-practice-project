@@ -5,7 +5,7 @@ function MovieCard() {
     <div className="col-6 m-5">
       <div className="card bg-bone-white text-dark position-relative">
         <span
-          className="position-absolute top-0 start-0 translate-middle badge bg-danger
+          className="position-absolute top-0 start-0 translate-middle badge bg-success
         custom-badge-position"
         >
           99+
