@@ -1,3 +1,8 @@
 .bg-bone-white {
   background-color: #f9f6ee;
 }
+
+.custom-badge-position {
+  top: 0.3rem !important;
+  left: 0.7rem !important;
+}
