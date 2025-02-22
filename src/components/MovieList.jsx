@@ -2,7 +2,7 @@ import { useState } from "react";
 import MovieCard from "./MovieCard";
 
 function MovieList() {
-  const [movies, setMovies] = useState(
+  const [movies, setMovies] = useState([
     {
       id: 1001,
       title: "Inception",
@@ -18,7 +18,7 @@ function MovieList() {
       title: "Lord of the Rings: Fellowship of the Ring",
       rate: 9.0,
     }
-  );
+  ]);
 
   return (
     <div>
