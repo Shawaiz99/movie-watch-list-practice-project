@@ -5,4 +5,6 @@
 .custom-badge-position {
   top: 0.3rem !important;
   left: 0.7rem !important;
+  min-width: 2.2rem;
+  max-width: 2.2rem;
 }

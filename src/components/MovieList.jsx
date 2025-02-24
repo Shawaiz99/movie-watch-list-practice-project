@@ -21,9 +21,9 @@ function MovieList() {
   ]);
 
   return (
-    <div>
+    <div className="d-flex flex-column gap-3 align-items-center mt-5">
       {movies.map((movie) => (
-        <MovieCard />
+        <MovieCard key={movie.id} movie={movie}/>
       ))}
     </div>
   );
