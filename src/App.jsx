@@ -29,13 +29,18 @@ function App() {
     setMovies((prev) => [...prev, newMovie]);
   };
 
+  const removeMovie = (id) => {
+    // const filteredArray = movies.filter((movie) => {movie.id !== id});
+    setMovies((prev) => prev.filter((movie) => movie.id !== id));
+  };
+
   return (
     <>
       <Navbar />
       <div className="d-flex justify-content-center mt-2">
         <MovieForm addMovie={addMovie}/>
       </div>
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} removeMovie={removeMovie}/>
     </>
   );
 }

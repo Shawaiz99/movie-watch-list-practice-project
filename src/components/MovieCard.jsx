@@ -1,6 +1,6 @@
 import { FaTrashCan } from "react-icons/fa6";
 
-function MovieCard({movie}) {
+function MovieCard({movie, removeMovie}) {
   return (
     <div className="col-6">
       <div className="card bg-bone-white text-dark position-relative">
@@ -13,9 +13,9 @@ function MovieCard({movie}) {
 
         <div className="card-body d-flex justify-content-between">
           <h3 className="card-title m-0">{movie.title}</h3>
-          <div className="text-danger">
+          <button onClick={() => removeMovie(movie.id)} className="text-danger btn">
             <FaTrashCan />
-          </div>
+          </button>
         </div>
       </div>
     </div>
