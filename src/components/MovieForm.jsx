@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MovieForm() {
+function MovieForm({ addMovie }) {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("");
 
@@ -18,11 +18,16 @@ function MovieForm() {
     const newMovie = {
       id: Date.now(),
       title: title,
-      rate: rate
+      rate: rate,
     };
-    console.log('New Movie: ', newMovie);
-    setTitle('');
-    setRate('');
+
+    addMovie(newMovie);
+
+    console.log("New Movie: ", newMovie);
+    
+    // Reset State
+    setTitle("");
+    setRate("");
   };
 
   return (

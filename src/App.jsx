@@ -23,11 +23,17 @@ function App() {
     }
   ]);
   
+  const addMovie = (newMovie) => {
+    // movies.push(newMovie);
+    console.log('Adding the new movie');
+    setMovies((prev) => [...prev, newMovie]);
+  };
+
   return (
     <>
       <Navbar />
       <div className="d-flex justify-content-center mt-2">
-        <MovieForm />
+        <MovieForm addMovie={addMovie}/>
       </div>
       <MovieList movies={movies}/>
     </>
