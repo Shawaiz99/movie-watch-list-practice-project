@@ -2,6 +2,10 @@
   background-color: #f9f6ee;
 }
 
+.neon-shadow {
+  box-shadow: 0 0 3rem 0.1rem rgb(147, 147, 255, 0.842);
+}
+
 .custom-badge-position {
   top: 0.3rem !important;
   left: 0.7rem !important;
