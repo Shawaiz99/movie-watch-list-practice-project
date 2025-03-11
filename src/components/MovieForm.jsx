@@ -63,6 +63,7 @@ function MovieForm({ addMovie }) {
         </div>
       </div>
       <button
+        id="submit-btn"
         type="submit"
         className="btn btn-warning btn-sm col-xl-2 col-12 mb-1"
       >
