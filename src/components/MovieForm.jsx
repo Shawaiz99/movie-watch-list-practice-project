@@ -27,8 +27,15 @@ function MovieForm({ addMovie }) {
     setValidRate(isValidRate(value));
   };
 
+  const isFormValid = validTitle && validRate;
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isFormValid) {
+      console.log('Invalid Inputs');
+      return;
+    }
 
     const newMovie = {
       id: Date.now(),
@@ -49,7 +56,7 @@ function MovieForm({ addMovie }) {
     setValidRate(false);
   };
 
-  const isFormValid = validTitle && validRate;
+  
 
   return (
     <form

@@ -4,12 +4,14 @@ import Navbar from "./components/Navbar";
 import { useState } from "react";
 
 function App() {
-  
   const [movies, setMovies] = useState([]);
-  
+
+  // set up the state to edit the movie
+  const [editingMovie, setEditingMovie] = useState(null);
+
   const addMovie = (newMovie) => {
     // movies.push(newMovie);
-    console.log('Adding the new movie');
+    console.log("Adding the new movie");
     setMovies((prev) => [...prev, newMovie]);
   };
 
@@ -18,13 +20,23 @@ function App() {
     setMovies((prev) => prev.filter((movie) => movie.id !== id));
   };
 
+  const editMovie = (movieToEdit) => {
+    setEditingMovie(movieToEdit);
+  };
+
+  const updateMovie = () => {
+    setMovies((prev) =>
+      prev.map((movie) => (movie.id === updateMovie.id ? updateMovie : movie))
+    );
+  };
+
   return (
     <>
       <Navbar />
       <div className="d-flex justify-content-center mt-2">
-        <MovieForm addMovie={addMovie}/>
+        <MovieForm addMovie={addMovie} />
       </div>
-      <MovieList movies={movies} removeMovie={removeMovie}/>
+      <MovieList movies={movies} removeMovie={removeMovie} />
     </>
   );
 }
