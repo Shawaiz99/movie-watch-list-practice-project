@@ -1,15 +1,30 @@
 import { useState } from "react";
+import {isValidTitle, isValidRate} from '../utils.js'
 
 function MovieForm({ addMovie }) {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("");
 
+  // add state that will control the validility of the title
+  const [validTitle, setValidTitle] = useState(false);
+  const [validRate, setValidRate] = useState(false);
+
+  // Requirements for inputs
+  // title - not empty and more than 3 characters
+  // rate - not empty string, it's not NaN isNaN()
+  //        range of rate >=1 and <= 10 
+
+
   const handleTitleInput = (e) => {
-    setTitle(e.target.value);
+    const value = e.target.value;
+    setTitle(value);
+    setValidTitle(isValidTitle(value));
   };
 
   const handleRateInput = (e) => {
-    setRate(e.target.value);
+    const value = e.target.value;
+    setRate(value);
+    setValidRate(isValidRate(value));
   };
 
   const handleSubmit = (e) => {
@@ -28,7 +43,13 @@ function MovieForm({ addMovie }) {
     // Reset State
     setTitle("");
     setRate("");
+
+    // Reset the State of input validations
+    setValidTitle(false);
+    setValidRate(false);
   };
+
+  const isFormValid = validTitle && validRate;
 
   return (
     <form
@@ -41,7 +62,7 @@ function MovieForm({ addMovie }) {
           <input
             onChange={handleTitleInput}
             type="text"
-            className="form-control"
+            className={`form-control ${validTitle ? '': 'is-invalid'}`}
             id="movie-title"
             placeholder="Movie Title"
             value={title}
@@ -54,7 +75,7 @@ function MovieForm({ addMovie }) {
           <input
             onChange={handleRateInput}
             type="number"
-            className="form-control"
+            className={`form-control ${validRate ? '': 'is-invalid'}`}
             id="movie-rate"
             placeholder="Movie Title"
             value={rate}
@@ -66,6 +87,7 @@ function MovieForm({ addMovie }) {
         id="submit-btn"
         type="submit"
         className="btn btn-warning btn-sm col-xl-2 col-12 mb-1"
+        disabled={!isFormValid}
       >
         Add
       </button>
