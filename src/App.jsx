@@ -26,8 +26,9 @@ function App() {
   };
 
   const updateMovie = (updatedMovie) => {
-    setMovies((prev) =>
-      prev.map((movie) => (movie.id === updateMovie.id ? updateMovie : movie))
+    setMovies((prev) => 
+      prev.map((movie) => (movie.id === updatedMovie.id ?
+      updatedMovie : movie))
     );
     // todo - set the editingMovie to null
     setEditingMovie(null);

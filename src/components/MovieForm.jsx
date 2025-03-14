@@ -49,15 +49,21 @@ function MovieForm({ addMovie, editingMovie, updateMovie }) {
       return;
     }
 
-    const newMovie = {
-      id: Date.now(),
+    const movieData = {
+      id: editingMovie ? editingMovie.id : Date.now(),
       title: title,
       rate: rate,
     };
 
-    addMovie(newMovie);
+    if(editingMovie) {
+      console.log('Update triggered: ', movieData);
+      updateMovie(movieData);
+    } else {
+      console.log("New Movie: ", movieData);
+      addMovie(movieData);
+    }
+    
 
-    console.log("New Movie: ", newMovie);
     
     // Reset State
     setTitle("");
@@ -108,7 +114,7 @@ function MovieForm({ addMovie, editingMovie, updateMovie }) {
         className="btn btn-warning btn-sm col-xl-2 col-12 mb-1"
         disabled={!isFormValid}
       >
-        Add
+        {editingMovie ? 'Update': 'Add'}
       </button>
     </form>
   );
