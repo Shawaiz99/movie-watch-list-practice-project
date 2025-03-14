@@ -21,22 +21,33 @@ function App() {
   };
 
   const editMovie = (movieToEdit) => {
+    console.log("Captured Edit Movie", movieToEdit);
     setEditingMovie(movieToEdit);
   };
 
-  const updateMovie = () => {
+  const updateMovie = (updatedMovie) => {
     setMovies((prev) =>
       prev.map((movie) => (movie.id === updateMovie.id ? updateMovie : movie))
     );
+    // todo - set the editingMovie to null
+    setEditingMovie(null);
   };
 
   return (
     <>
       <Navbar />
       <div className="d-flex justify-content-center mt-2">
-        <MovieForm addMovie={addMovie} />
+        <MovieForm
+          addMovie={addMovie}
+          editingMovie={editingMovie}
+          updateMovie={updateMovie}
+        />
       </div>
-      <MovieList movies={movies} removeMovie={removeMovie} />
+      <MovieList
+        movies={movies}
+        editMovie={editMovie}
+        removeMovie={removeMovie}
+      />
     </>
   );
 }

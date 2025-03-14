@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {isValidTitle, isValidRate} from '../utils.js'
 
-function MovieForm({ addMovie }) {
+function MovieForm({ addMovie, editingMovie, updateMovie }) {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("");
 
   // add state that will control the validility of the title
   const [validTitle, setValidTitle] = useState(false);
   const [validRate, setValidRate] = useState(false);
+
+  // we will use the useEffect hook to trigger an action when
+  // editingMovie state changes
+  useEffect(() => {
+    if(editingMovie){
+      setTitle(editingMovie.title);
+      setRate(editingMovie.rate);
+      setValidTitle(true);
+      setValidRate(true);
+    }
+  }, [editingMovie]);
+
 
   // Requirements for inputs
   // title - not empty and more than 3 characters

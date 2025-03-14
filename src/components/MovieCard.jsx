@@ -1,7 +1,7 @@
 import { FaTrashCan } from "react-icons/fa6";
 import { FiEdit3 } from "react-icons/fi";
 
-function MovieCard({ movie, removeMovie }) {
+function MovieCard({ movie, editMovie, removeMovie }) {
   return (
     <div className="col-6">
       <div className="card bg-bone-white text-dark position-relative">
@@ -16,10 +16,10 @@ function MovieCard({ movie, removeMovie }) {
           <h3 className="card-title m-0">{movie.title}</h3>
           <div>
             <button
-              onClick={() => removeMovie(movie.id)}
+              onClick={() => editMovie(movie)}
               className="text-danger btn"
             >
-              <FiEdit3 size={'1.1rem'}/>
+              <FiEdit3 size={"1.1rem"} />
             </button>
             <button
               onClick={() => removeMovie(movie.id)}
