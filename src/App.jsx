@@ -2,6 +2,7 @@ import MovieForm from "./components/MovieForm";
 import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
+import ThemeToggler from "./components/ThemeToggler";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -36,7 +37,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar>
+        <ThemeToggler/>
+      </Navbar>
       <div className="d-flex justify-content-center mt-2">
         <MovieForm
           addMovie={addMovie}
